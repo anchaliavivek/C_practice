@@ -18,6 +18,7 @@ void insert (struct node *start){
 	conductor->next = NULL;
 }
 
+
 void display(struct node *start) {
 	while (start->next != NULL) {
 		start = start->next;
@@ -35,28 +36,31 @@ void no_of_elements(struct node *start) {
 	printf("The total no of elements in the list are %d\n",count);
 }
 
+struct node * point (struct node *start)
+{
+	struct node * t , *t1;
+	t = start;
+	t1 = start;
+	while (t->next != NULL)
+	{
+		t = t->next;
+	}
+	return t1->next;
+	
+	
+}
+
 int main() {
 	struct node *root = (struct node *)(malloc(sizeof(struct node )));
 	struct node *start;
+	struct node *last;
 	start = root;
-	printf("Enter data : ");
-	scanf("%d",&start->data);
 	start->next = NULL;
+	insert(start);
 	insert(start);
 	insert(start);
 	insert(start);
 	display(start);
 	no_of_elements(start);
-	
-	
-/*	while(conductor->next != NULL) {
-		conductor = conductor->next;
-	}
-	
-	while (head->next != NULL)
-	{
-		printf("%d\n",head->data);
-		head = head->next;
-	}*/ 
 	return 0;
 }
