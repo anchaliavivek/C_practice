@@ -1,0 +1,23 @@
+#include <stdio.h>
+int func( int * a ,int  length , int max)
+{
+	if (length != 0)
+	{
+	if (*(a) > max)
+	{
+		max = *(a);
+	}
+	length --;
+	return func (a+1 , length, max);
+	}
+	else 
+	return max;
+}
+
+int main() {
+	int a[10] = { 10, 22 , 34 , 21 , 5 , 11, 23, 89 , 77 , 23};
+	int max = func(a,10,0);
+	printf("max val is : %d\n",max);
+	
+	return 0;
+}
