@@ -1,0 +1,62 @@
+#include <stdio.h>
+struct node {
+	int data;
+	struct node *next;
+};
+
+void insert (struct node *start){
+	struct node *conductor;
+	conductor = start;
+	while (conductor->next != NULL)
+	{
+		conductor = conductor->next;
+	}
+	conductor->next = (struct node *)(malloc(sizeof(struct node )));
+	conductor = conductor->next;
+	printf("Enter data : ");
+	scanf("%d",&conductor->data);
+	conductor->next = NULL;
+}
+
+void display(struct node *start) {
+	while (start->next != NULL) {
+		start = start->next;
+		printf("%d\n",start->data);
+	}
+}
+
+void no_of_elements(struct node *start) {
+	int count = 0;
+	while (start->next != NULL)
+	{
+		count++;
+		start = start->next;
+	}
+	printf("The total no of elements in the list are %d\n",count);
+}
+
+int main() {
+	struct node *root = (struct node *)(malloc(sizeof(struct node )));
+	struct node *start;
+	start = root;
+	printf("Enter data : ");
+	scanf("%d",&start->data);
+	start->next = NULL;
+	insert(start);
+	insert(start);
+	insert(start);
+	display(start);
+	no_of_elements(start);
+	
+	
+/*	while(conductor->next != NULL) {
+		conductor = conductor->next;
+	}
+	
+	while (head->next != NULL)
+	{
+		printf("%d\n",head->data);
+		head = head->next;
+	}*/ 
+	return 0;
+}
